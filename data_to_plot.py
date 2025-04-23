@@ -42,8 +42,12 @@ skiprows = find_skiprows(filename)
 
 pressuredata = np.loadtxt(filename, delimiter=",", skiprows = skiprows, usecols=[2])
 
+average = np.mean(pressuredata)
+
 time = list(range(1, len(pressuredata) +1)) #creates list of 1 second intervals to plot differential pressure against
+
 plt.plot(time, pressuredata)
+plt.text(average)
 plt.xlabel("Time (s)")
 plt.ylabel("Differential Pressure (Pa)")
 plt.title("Differential Pressure for 900x20por 60mm")
