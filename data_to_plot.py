@@ -7,10 +7,10 @@ Created on Wed Mar 12 2025
 """
 import numpy as np
 import matplotlib.pyplot as plt
+file = "900_20por_110-120_1hr_(.30-.42speed)"
+filecsv = file + ".csv"
 
-filename = "900_20por_50-60_1hr_(.30-.42).csv"
-
-def find_skiprows(filename):
+def find_skiprows(filecsv):
   """Finds the amount of rows to skip on the CSV file for data analysis.
 
   This function starts by opening the data file in read mode. It then begins reading 
@@ -30,25 +30,25 @@ def find_skiprows(filename):
   Raises:
     ValueError: If "Calibration complete." is not found within the data file.
   """
-  with open(filename, 'r') as file:
+  with open(filecsv, 'r') as file:
     for i, line in enumerate(file):
       columns = line.strip().split(",")
-      if len(columns) > 1 and columns[1].strip() == "Calibration complete."
+      if len(columns) > 1 and columns[1].strip() == "Calibration complete.":
         rows = i + 1
         return rows
   raise ValueError("'Calibration complete.' not found in second column")
 
-skiprows = find_skiprows(filename)
+skiprows = find_skiprows(filecsv)
 
-pressuredata = np.loadtxt(filename, delimiter=",", skiprows = skiprows, usecols=[2])
+pressuredata = np.loadtxt(filecsv, delimiter=",", skiprows = skiprows, usecols=[2])
 
 average = np.mean(pressuredata)
 
 time = list(range(1, len(pressuredata) +1)) #creates list of 1 second intervals to plot differential pressure against
 
 plt.plot(time, pressuredata)
-plt.text(average)
+plt.text(0.5*len(time), average+1.5, f"Average = {average:.5} Pa")
 plt.xlabel("Time (s)")
 plt.ylabel("Differential Pressure (Pa)")
-plt.title("Differential Pressure for 900x20por 60mm")
-plt.savefig("900x20por_60mm.png")
+plt.title("Differential Pressure for 900x20por 120mm")
+plt.savefig(file+".png")
