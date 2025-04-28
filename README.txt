@@ -6,3 +6,5 @@ the creation of the LaTex report. This data analysis project analyzes
 the differential pressure data of 3-D printed porous materials to 
 determine the airflow resistance of said materials. This has acoustic 
 implications in designing porous materials for acoustic purposes. 
+
+The final LaTex Report is titled Data_Analysis.pdf
