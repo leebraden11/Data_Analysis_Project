@@ -1,0 +1,28 @@
+	The properties of porous materials are important in acoustical engineering. Porosity (the 
+ratio of pore volume to total volume) and acoustic impedance factor into the sound damping 
+capabilities of materials. NASA has a vested interest in this field. NASA monitors the acoustical 
+environment on every manned spacecraft (i.e. the ISS, Orion Capsule). The Johnson Space Center 
+(JSC) Acoustics and Noise Control Laboratory (ANCL) is tasked with ensuring a "Safe, Healthy, and 
+Habitable Vehicle Acoustic Environment" (\cite{nasa_acoustics}). This laboratory uses a number of 
+techniques to measure the acoustic properties of materials used to control noise in a manned 
+spacecraft. This could be the noise from a cooling fan on a piece of equipment or duct noise from
+air circulation. One of the measurement instruments used at ANCL is an acoustic impedance tube.
+	When designing these materials for noise control, it is important to account 
+for how much airflow a system may need through the sound impeding material. To account for this,
+the airflow resistance of the materials can be studied. Airflow resistance is defined as the 
+differential pressure over the material divided by the volumetric airflow rate through the 
+material(\cite{liu2018numerical}).
+\begin{equation} \label{Airflow Resistance} 
+R= \frac{\Delta p}{q_v}
+\end{equation}
+The volumetric airflow rate is determined by the air speed through the material multiplied by the 
+cross sectional area of the output space where speed is being measured.
+\begin{equation}
+q_v = v \pi r^2 where r = 0.0330 m
+\end{equation}
+\begin{equation}
+q_v = v(0.00342 m^2)
+\end{equation}
+Comparing how material properties affect both sound impedance and airflow resistance will allow for 
+the optimization of acoustic materials. However, this project will solely focus on the airflow 
+resistance of these materials. 
